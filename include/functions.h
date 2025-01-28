@@ -7,6 +7,6 @@
  * This function demonstrates a simple message output
  * to the console using the standard printf function.
  */
-void PrintHelloWorld();
-
+int CosineSeries(int init_number, int end_number);
+void FillDate(long second, int* day, int* month, int* year);
 #endif // FUNCTIONS_H
