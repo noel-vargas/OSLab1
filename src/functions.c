@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "../include/functions.h"
 #include <stdio.h>
 #include "math.h"
 
@@ -19,26 +19,28 @@ int CosineSeries(int init_number, int end_number) {
 
 void FillDate(long second, int* day, int* month, int* year){
   // secondsPerDay = 86400
-  double totalDays = second / 86400;
-  int totalYears = 0;
+  double totalDays = (second / 86400)+1; // +1 since we start at January 1st
   int leapYear = 0;
+  int startYear = 1970;
   while (totalDays >= 365){
     // check if leap year
-    if (totalYears %4 == 0){
+    if (startYear %4 == 0){
       // leap year
       totalDays -= 366;
-      leapYear = 1;
     }else {
       totalDays -= 365;
-      leapYear = 0;
     }
-    totalYears +=1;
+    startYear +=1;
 
   }
-  totalDays += leapYear;
   int daysOfTheMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+   
+  if (startYear %4 == 0){
+    // adjust february and add an extra day to total days I think. 
+     daysOfTheMonth[1] +=1;
+  }
 
-  int size = sizeof(daysOfTheMonth);
+  int size = sizeof(daysOfTheMonth)/4;
   int* ptr = daysOfTheMonth;
   int currMonth = 0;
   for ( int i = 0; i < size; i++ ){
@@ -53,7 +55,7 @@ void FillDate(long second, int* day, int* month, int* year){
 
   *day = totalDays;
   *month = currMonth;
-  *year = totalYears;
+  *year = startYear;
 
   
 }

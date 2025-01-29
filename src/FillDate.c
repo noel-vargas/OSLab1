@@ -9,19 +9,24 @@ int main() {
     int month;
     int year;
     // 3 inputs to ask the user
-    int date1;
-    int date2;
-    int date3;
-    printf("Enter the first number");
-    scanf("%d", &date1);
-    FillDate(date1, &day, &month, &year);
-    char currMonth = months[month];
-    printf("%s %d, %d",currMonth, day,year);
+    // int firstNumber;
+    // int secondNumber;
+    // int thirdNumber;
+    // printf("Enter the first number");
+    // scanf("%d", &firstNumber);
     // printf("Enter the second number:");
-    // scanf("%d", &date2);
+    // scanf("%d", &secondNumber);
     // printf("Enter the third  number");
-    // scanf("%d", &date3);
+    // scanf("%d", &thirdNumber);
 
+    // long result = firstNumber*10000+secondNumber*100+thirdNumber;
+    long seconds;
+    printf("Enter the seconds");
+    scanf("%ld", &seconds);
+    // FillDate(result, &day, &month, &year);
+    FillDate(seconds, &day, &month, &year);
+    char* currMonth = months[month];
+    printf("%s %d,%d",currMonth, day,year);
     
     return 0;
 }
