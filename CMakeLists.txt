@@ -9,7 +9,7 @@ include_directories(include)
 
 # Add the executable
 add_executable(OSLabs
-    src/FillDate.c
+    src/FillDateStruct.c
     src/functions.c
 )
 
